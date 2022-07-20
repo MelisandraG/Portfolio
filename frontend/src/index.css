@@ -1,0 +1,83 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+main{
+  width: 100%;
+}
+.NavBar{
+  height: 7rem;
+  width: 100%;
+  display: flex;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+  background-color: black
+}
+.NavBar > img{
+  height: 80%;
+  align-self: center;
+  margin-left: 5rem;
+}
+.nav{
+  display: flex;
+  -webkit-box-pack: center;
+  justify-content: center;
+  margin-right: 2rem;
+  font-size: 1rem;
+}
+.nav > a {
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.5s ease 0s;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  padding: 0px 1rem;
+  color: whitesmoke;
+}
+
+a:hover {
+  cursor: pointer;
+  text-decoration: underline;
+  background-color: grey;
+}
+.tec{
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(30vw, 2fr));
+}
+
+.aboutContainer{
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  width: 90%;
+  margin: 3rem auto;
+  gap: 5vw;
+}
+.aboutContainer > img{
+  align-self: center;
+}
+p{
+  text-align: justify;
+}
+
+@media (max-width: 768px) { 
+  .NavBar > img{
+    display:none;
+  }
+  .aboutContainer{
+    display: flex;
+    flex-direction: column;
+  }
+  
+  
+ }

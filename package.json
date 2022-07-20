@@ -1,0 +1,27 @@
+{
+  "name": "portfolio",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "concurrently \"npm --prefix ./frontend run dev\"",
+    "start": "concurrently \"npm --prefix ./frontend run dev\" \"npm --prefix ./backend run dev\"",
+    "dev-front": "npm --prefix ./frontend run dev",
+    "dev-back": "npm --prefix ./backend run dev",
+    "fix": "npm --prefix ./frontend run fix && npm --prefix ./backend run fix"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MelisandraG/Portfolio.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MelisandraG/Portfolio/issues"
+  },
+  "homepage": "https://github.com/MelisandraG/Portfolio#readme",
+  "dependencies": {
+    "concurrently": "^7.3.0"
+  }
+}
