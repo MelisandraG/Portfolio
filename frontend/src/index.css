@@ -53,6 +53,7 @@ a:hover {
 .tec{
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(30vw, 2fr));
+  gap: 15px;
 }
 
 .aboutContainer{
@@ -68,6 +69,76 @@ a:hover {
 }
 p{
   text-align: justify;
+}
+.section-title-icon{
+  width: 5%;
+  display: flex;
+  align-items: center;
+}
+
+.section-title{
+  display: flex;
+  justify-content: center;
+  gap:10%;
+  background-color: black;
+  color: whitesmoke;
+
+}
+
+.project-items{
+  display:flex;
+  flex-wrap: wrap;
+  gap:5%
+}
+
+.project-item{
+width: 40%;
+}
+
+.project-image{
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  justify-items: center;
+  padding: 10px;
+
+}
+
+.language {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.skill-item{
+  display:flex;
+  flex-wrap: wrap;
+  padding: 30px;
+  filter: drop-shadow(2px 4px 20px #E2E2E2);
+  background-color: white;
+}
+
+.skill-image{
+  width: 30%;
+  justify-items: center;
+  padding: 10px;
+}
+
+.contact-form{
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  gap:20px;
+  align-content: center;
+}
+
+.contact-form input{
+  height: 30px;
+}
+
+.contact-form textarea{
+  height: 100px;
 }
 
 @media (max-width: 768px) { 

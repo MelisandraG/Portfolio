@@ -8,20 +8,20 @@ export default function Skills() {
   return (
     <section id="skills">
       <div>
-        <div>
-          <ChipIcon/>
+        <div className="section-title">
+          <div className="section-title-icon"><ChipIcon/></div>
           <h1>  Skills &amp; Technologies</h1>
-          <p>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nisi sit
-            ipsa delectus eum quo voluptas aspernatur accusantium distinctio
-            possimus est.
-          </p>
         </div>
+        <p>
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nisi sit
+          ipsa delectus eum quo voluptas aspernatur accusantium distinctio
+          possimus est.
+        </p>
         <div className="tec">
           {skills.map((skill) => (
-            <div key={skill}>
+            <div key={skill} className ="skill-item">
               <div className="language">
-                <img alt="gallery"  src={skill.image} />
+                <img alt="gallery"  src={skill.image} className ='skill-image'/>
                 <span>
                   {skill.title}
                 </span>

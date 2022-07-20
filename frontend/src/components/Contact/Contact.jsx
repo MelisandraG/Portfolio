@@ -1,28 +1,49 @@
 // src/components/Contact.js
 
-import React from "react";
+import React, {useState} from "react";
+import { MailIcon } from "@heroicons/react/solid";
 
 export default function Contact() {
+
+  const [form, setForm] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    message:"",
+
+  });
+
+  
+  let handleChange = (e) => {
+
+    console.log(e)
+    const value =e.target.value;
+    const name = e.target.name;
+    setForm({ ...form, [name]: value });
+  
+
+
+  };
+
+
   return (
     <section id="contact" className="relative">
-        <form netlify name="contact">
+      <div className="section-title">
+          <div className="section-title-icon"><MailIcon/></div>
           <h2> Hire Me</h2>
-          <p>
+      </div>
+      <p>
             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illum
             suscipit officia aspernatur veritatis. Asperiores, aliquid?
-          </p>
-          <div>
-            <label htmlFor="name"> Name </label>
-            <input type="text" id="name" name="name"/>
-          </div>
-          <div className="relative mb-4">
-            <label htmlFor="email">Email</label>
-            <input type="email"id="email"name="email" />
-          </div>
-          <div className="relative mb-4">
-            <label  htmlFor="message">  Message</label> 
-            <textarea  id="message"name="message" />
-          </div>
+      </p>
+        <form className="contact-form">
+            <input type="text" id="name" name="name" placeholder="Name" value={form.name} onChange={handleChange}/>
+
+            <input type="email"id="email"name="email" placeholder="Email" value={form.email} onChange={handleChange}/>
+
+            <input type="subject"id="subject"name="subject" placeholder="Subject" value={form.subject} onChange={handleChange}/>
+
+            <textarea  id="message"name="message" value={form.message} onChange={handleChange} placeholder="Write a message"/>
           <button type="submit">  Submit </button>
         </form>
     </section>
