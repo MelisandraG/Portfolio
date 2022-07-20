@@ -1,5 +1,5 @@
 node_modules
-frontend/Portfolio/node_modules
-backend/Portfolio/node_modules
+frontend/node_modules
+backend/node_modules
 .DS-store
 .env
