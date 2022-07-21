@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
 const connection = require("./config");
-//const authRouter = require("./routes/auth");
+const authRouter = require("./routes/auth");
 //const passwordRouter = require("./routes/passwordManagement");
 
 const port = process.env.PORT || 5001;

@@ -1,6 +1,8 @@
 import { ArrowRightIcon } from "@heroicons/react/solid";
 import React from "react";
-import "../../index"
+import { Link, useLocation } from "react-router-dom";
+import { HashLink } from 'react-router-hash-link';
+import "../../index";
 
 
 export default function Navbar() {
@@ -8,11 +10,13 @@ export default function Navbar() {
     <header className="NavBar">
       <img src="avatar.png" alt="image" />
       <nav className="nav">
-        <a href="#about"> About Me </a>
-        <a href="#Background"> Background </a>
-        <a href="#projects"> Past Work</a>
-        <a href="#skills"> Skills</a>
-        <a href="#contact" >Hire Me </a>
+     
+        <HashLink to ="/#about"> About Me </HashLink>
+        <HashLink to ="/#Background"> Background </HashLink>
+        <HashLink to ="/#projects"> Past Work</HashLink>
+        <HashLink to ="/#skills"> Skills</HashLink>
+        <HashLink to ="/#contact" >Hire Me </HashLink>
+        <Link to="/private-acess">dfd</Link>
       </nav>
     </header>
   );
