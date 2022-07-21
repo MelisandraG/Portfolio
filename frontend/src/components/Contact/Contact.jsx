@@ -40,10 +40,10 @@ function sendEmail(e){
           <div className="section-title-icon"><MailIcon/></div>
           <h2> Hire Me</h2>
       </div>
-      <p>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illum
-            suscipit officia aspernatur veritatis. Asperiores, aliquid?
-      </p>
+      <div className="contactContainer">
+        <p>
+        Feel free to send me a message, I would like to receive feedback on my work
+        </p>
         <form className="contact-form" onSubmit={sendEmail}>
             <input type="text" id="name" name="name" placeholder="Name" value={form.name} onChange={handleChange} required/>
             <input type="email"id="email" name="email" placeholder="Email" value={form.email} onChange={handleChange} required/>
@@ -51,6 +51,7 @@ function sendEmail(e){
             <textarea  id="message"name="message" value={form.message} onChange={handleChange} placeholder="Write a message" required/>
           <button type="submit">  Submit </button>
         </form>
+      </div>
     </section>
   );
 }

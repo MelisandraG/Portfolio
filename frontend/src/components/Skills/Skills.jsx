@@ -12,22 +12,22 @@ export default function Skills() {
           <div className="section-title-icon"><ChipIcon/></div>
           <h1>  Skills &amp; Technologies</h1>
         </div>
-        <p>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nisi sit
-          ipsa delectus eum quo voluptas aspernatur accusantium distinctio
-          possimus est.
-        </p>
-        <div className="tec">
-          {skills.map((skill) => (
-            <div key={skill} className ="skill-item">
-              <div className="language">
-                <img alt="gallery"  src={skill.image} className ='skill-image'/>
-                <span>
-                  {skill.title}
-                </span>
+        <div className='skillsContainer'>
+          <p>
+          All my knowledge, I emphasize that I am at the beginning of my professional path as a developer.
+          </p>
+          <div className="tec">
+            {skills.map((skill) => (
+              <div key={skill} className ="skill-item">
+                <div className="language">
+                  <img alt="gallery"  src={skill.image} className ='skill-image'/>
+                  <span>
+                    {skill.title}
+                  </span>
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </section>

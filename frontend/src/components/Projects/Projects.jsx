@@ -19,7 +19,7 @@ export default function Projects() {
       .get(`/auth/project`)
       .then((response) => {
         setProjects(response.data)
-        console.log("InvestmentsDetails", response.data)
+
       })
       .catch((error) => {
 
@@ -36,25 +36,26 @@ export default function Projects() {
           <div className="section-title-icon"><CodeIcon/></div>
           <h1> Apps I've Built</h1>
         </div>
-        <p className="lg:w-2/3 mx-auto leading-relaxed text-base">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Explicabo
-            facilis repellat ab cupiditate alias vero aliquid obcaecati quisquam
-            fuga dolore.
-        </p>
-        <div className="project-items">
-          {projects?.map((project) => (
-            <div className="project-item">
-            <a href={project.link} key={project.image}></a>
-              <div className="flex relative">
-                <img alt="gallery"  src={project.image} className='project-image'/>
-                <div>
-                  <h2>{project.subtitle}</h2>
-                  <h1> {project.title}</h1>
-                  <p>{project.description}</p>
+        <div className="projectsContainer">
+          <p>
+          The first two applications, I built during the bootcamp, Over time I will publish my new projects, because I really enjoy creating applications, learning new programming languages ​​and discovering new solutions.
+          </p>
+          <div className="project-items">
+            {projects?.map((project) => (
+              <div className="project-item">
+              <a href={project.link} key={project.image}></a>
+                <div className="flex relative">
+                  <img alt="gallery"  src={project.image} className='project-image'/>
+                  <div>
+                    <h1> {project.title}</h1>
+                    <h2>{project.subtitle}</h2>
+                    <p>{project.description}</p>
+                    <p>{project.technologies}</p>
+                  </div>
                 </div>
               </div>
-            </div>
           ))}
+          </div>
         </div>
       </div>
     </section>

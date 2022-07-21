@@ -44,13 +44,14 @@ const findManyProject = () => {
 
 
 
-const createProject = ({title, subtitle, description, image, link }) => {
+const createProject = ({title, subtitle, description,technologies, image, link }) => {
  console.log(title)
         return db
             .query("INSERT INTO project SET ?", {
                 title, 
                 subtitle, 
-                description, 
+                description,
+                technologies, 
                 image, 
                 link
             })

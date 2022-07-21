@@ -22,6 +22,7 @@ CREATE TABLE `project` (
     `title` VARCHAR(80) UNIQUE NOT NULL,
     `subtitle` VARCHAR(80) UNIQUE NOT NULL,
     `description` VARCHAR(300) UNIQUE NOT NULL,
+    `technologies` VARCHAR(300) UNIQUE NOT NULL,
     `image`VARCHAR(300) not null,
     `link` varchar(80) NOT NULL,
     PRIMARY KEY (`id`)
@@ -31,9 +32,22 @@ INSERT INTO
 VALUES
   (
     1,
-    'React Reserve',
-    'MERN Stack',
-    'Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium dolore rerum laborum iure enim sint nemo omnis voluptate exercitationem eius?',
+    'MaCheFai',
+    'Italian recipes website',
+    'This site aims to help people discover and share Italian recipes. User can search, filter recipes and add a new recipe. Project made at the wild code school bootcamp.',
+    'JavaScript; HTML; CSS;',
     'https://i.ibb.co/chLHnCx/machefai.png',
     'https://portfolio-737fc.web.app/'
+  );
+INSERT INTO
+  `project`
+VALUES
+  (
+    2,
+    'Wild-league App',
+    'Football card website',
+    'Website dedicated to Premier League fans. Users can store their favorite players carts and build a team. Project done at wild code school bootcamp.',
+    'JavaScript; REACT; CSS; API;',
+    'https://i.ibb.co/xmY1RHm/wild.png',
+    'https://wild-league.netlify.app/'
   );
