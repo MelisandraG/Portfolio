@@ -7,6 +7,7 @@ import Projects from "./Projects/Projects";
 import Skills from "./Skills/Skills";
 import Background from "./Background/Background";
 import LoginPage from "./LoginPage/LoginPage";
+import SubmitProject from "./LoginPage/SubmiteProject/SubmiteProject";
 
 
 
@@ -16,6 +17,7 @@ export default function Main() {
         <Routes>
           <Route path="/" element={<><About /><Background/><Projects /><Skills /><Contact /></>}/>
           <Route path="/private-acess" element={<LoginPage/>}/>
+          <Route path="/private-acess/submite-project" element={<SubmitProject/>}/>
       </Routes>
     </div>
   );

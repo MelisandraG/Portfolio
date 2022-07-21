@@ -1,10 +1,34 @@
 // src/components/Projects.js
 
 import { CodeIcon } from "@heroicons/react/solid";
-import React from "react";
-import { projects } from "../../data";
+import React,{useEffect, useState} from "react";
+import axios from 'axios';
+
+//import { projects } from "../../data";
 
 export default function Projects() {
+  const [projects, setProjects] = useState()
+
+  useEffect(() => {
+   getProject();
+  }, []);
+
+
+  const getProject = () => {
+    axios
+      .get(`/auth/project`)
+      .then((response) => {
+        setProjects(response.data)
+        console.log("InvestmentsDetails", response.data)
+      })
+      .catch((error) => {
+
+      });
+  }
+
+
+
+
   return (
     <section id="projects">
       <div>
@@ -18,7 +42,7 @@ export default function Projects() {
             fuga dolore.
         </p>
         <div className="project-items">
-          {projects.map((project) => (
+          {projects?.map((project) => (
             <div className="project-item">
             <a href={project.link} key={project.image}></a>
               <div className="flex relative">

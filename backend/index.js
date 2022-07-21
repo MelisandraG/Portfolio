@@ -6,14 +6,14 @@ const authRouter = require("./routes/auth");
 
 const port = process.env.PORT || 5001;
 
-// connection.connect((err) => {
-//   if (err) throw err;
-//   console.log("Successfully connected to the database");
-// });
+ connection.connect((err) => {
+   if (err) throw err;
+   console.log("Successfully connected to the database");
+ });
 
 app.use(express.json());
 
-//app.use("/auth", authRouter);
+app.use("/auth", authRouter);
 //app.use("/password", passwordRouter);
 
 app.listen(port, (err) => {

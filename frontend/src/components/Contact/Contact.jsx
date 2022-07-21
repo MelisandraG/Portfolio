@@ -25,7 +25,7 @@ export default function Contact() {
 
 
   };
-  console.log(process.env.REACT_APP_SERVICE_ID)
+
 function sendEmail(e){
   e.preventDefault()
   
@@ -46,11 +46,8 @@ function sendEmail(e){
       </p>
         <form className="contact-form" onSubmit={sendEmail}>
             <input type="text" id="name" name="name" placeholder="Name" value={form.name} onChange={handleChange} required/>
-
             <input type="email"id="email" name="email" placeholder="Email" value={form.email} onChange={handleChange} required/>
-
             <input type="subject"id="subject"name="subject" placeholder="Subject" value={form.subject} onChange={handleChange} required/>
-
             <textarea  id="message"name="message" value={form.message} onChange={handleChange} placeholder="Write a message" required/>
           <button type="submit">  Submit </button>
         </form>

@@ -16,7 +16,7 @@ export default function Navbar() {
         <HashLink to ="/#projects"> Past Work</HashLink>
         <HashLink to ="/#skills"> Skills</HashLink>
         <HashLink to ="/#contact" >Hire Me </HashLink>
-        <Link to="/private-acess">dfd</Link>
+        <Link to="/private-acess">Private Acess</Link>
       </nav>
     </header>
   );
