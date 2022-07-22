@@ -43,9 +43,9 @@ export default function Projects() {
           <div className="project-items">
             {projects?.map((project) => (
               <div className="project-item">
-              <a href={project.link} key={project.image}></a>
                 <div className="flex relative">
                   <img alt="gallery"  src={project.image} className='project-image'/>
+                  <a href={project.link} key={project.image}>{project.link}</a>
                   <div>
                     <h1> {project.title}</h1>
                     <h2>{project.subtitle}</h2>
