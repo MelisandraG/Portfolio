@@ -26,7 +26,7 @@ CREATE TABLE `project` (
     `description` VARCHAR(300) UNIQUE NOT NULL,
     `technologies` VARCHAR(300) UNIQUE NOT NULL,
     `image`VARCHAR(300) not null,
-    `link` varchar(80) NOT NULL,
+    `link` varchar(300) NOT NULL,
     PRIMARY KEY (`id`)
   ) ENGINE = InnoDB AUTO_INCREMENT = 1 DEFAULT CHARSET = utf8;
 INSERT INTO

@@ -1,6 +1,8 @@
 
 import React,{useState, useContext} from "react";
 import axios from 'axios';
+import { storage } from "../../../firebase";
+import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 
 export default function SubmitProject() {
 
@@ -13,21 +15,45 @@ export default function SubmitProject() {
     link:"",
   });
 
+  const [image, setImage] = useState(null);
+  const [url, setUrl] = useState(null);
 
   let handleChange = (e) => {
 
-    console.log(e)
     const value =e.target.value;
     const name = e.target.name;
     setNewProject({ ...newProject, [name]: value });
   };
 
     function handleChangeImg(e) {
-        console.log(URL.createObjectURL(e.target.files[0]));
-        const urlLink=URL.createObjectURL(e.target.files[0])
-        setNewProject({ ...newProject, image: urlLink });
+      if (e.target.files[0]) {
+      setImage(e.target.files[0])
+    }
     }
 
+    function handleSubmitImage(e) {
+      console.log(image)
+      const imageRef = ref(storage, `image/${image.name}`)
+      uploadBytes(imageRef, image)
+      .then(() => {
+        getDownloadURL(imageRef)
+          .then((url) => {
+            setUrl(url);
+            setNewProject({ ...newProject, image: url });
+          })
+          .catch((error) => {
+            console.log(error.message, "error getting the image url");
+          });
+        setImage(null);
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
+  
+      }
+
+
+      console.log(url)
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -53,6 +79,7 @@ export default function SubmitProject() {
         <textarea  id="description" name="description" value={newProject.description} onChange={handleChange} placeholder="Write a description" required/>
         <input type="text"id="technologies" name="technologies" placeholder="technologies" value={newProject.technologies} onChange={handleChange} required/>
         <input type="file" name="image"  onChange={handleChangeImg}/>
+        <button onClick={handleSubmitImage}>Add image</button>
         <input type="text"id="link" name="link" placeholder="Project link" value={newProject.link} onChange={handleChange} required/>
         <button type="submit">  Submit </button>
         </form>
