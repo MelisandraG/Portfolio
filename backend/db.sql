@@ -6,6 +6,7 @@ CREATE TABLE `users` (
     `id` INT NOT NULL AUTO_INCREMENT,
     `email` VARCHAR(80) UNIQUE NOT NULL,
     `hashedPassword` varchar(300) NOT NULL,
+    `role` VARCHAR(40) DEFAULT 'user',
     PRIMARY KEY (`id`)
   ) ENGINE = InnoDB AUTO_INCREMENT = 1 DEFAULT CHARSET = utf8;
 INSERT INTO
@@ -14,7 +15,8 @@ VALUES
   (
     1,
     'melisandra.goncalves@gmail.com',
-    '$2a$12$3LTLmyhYDggmhPio9elUBeJ6KthojqiFRij66iDNoG4DsVP.VeGfO'
+    '$2a$12$3LTLmyhYDggmhPio9elUBeJ6KthojqiFRij66iDNoG4DsVP.VeGfO',
+    DEFAULT
   );
 
 CREATE TABLE `project` (

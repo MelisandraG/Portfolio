@@ -54,6 +54,12 @@ a:hover {
   text-decoration: underline;
   background-color: grey;
 }
+.myPicture{
+  border-radius: 50%;
+  border: 1px solid #ddd;
+  padding: 10px;
+
+}
 .tec{
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(20vw, 2fr));
@@ -88,7 +94,7 @@ p{
 .section-title{
   display: flex;
   justify-content: center;
-  gap:10%;
+  gap:5%;
   background-color: black;
   color: whitesmoke;
 
@@ -112,6 +118,9 @@ p{
 
 .project-item{
 width: 40%;
+filter: drop-shadow(2px 4px 20px #E2E2E2);
+background-color: white;
+padding: 30px;
 }
 
 .project-image{

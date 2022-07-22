@@ -1,13 +1,17 @@
-import React, {useState} from "react";
+import React, {useState, useContext} from "react";
 import axios from 'axios';
-
+import { useNavigate, useLocation } from "react-router-dom";
+import { AuthContext } from "../../contexts/AuthContext";
 
 export default function LoginPage() {
+  const { loading, auth, setLoading, setAuth,setUser,user } = useContext(AuthContext);
+    
     const [userLogin, setUserLogin] = useState({
         email: "",
         password: "",
       });
       const [displayErros, setDisplayErros] = useState('');
+      const navigate = useNavigate()
 
       const handleChange = (e) => {
         setDisplayErros('')
@@ -22,7 +26,10 @@ export default function LoginPage() {
         console.log(e)
         axios.post('/auth/login', userLogin)
         .then((response) => {
-            console.log(response)
+          setUser(response.data)
+          setAuth(true);
+          setLoading(true)
+            navigate("/private-acess/submite-project")
         })
         .catch((error) => {
           setDisplayErros(error.response.data)

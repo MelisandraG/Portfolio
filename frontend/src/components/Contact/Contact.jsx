@@ -38,7 +38,7 @@ function sendEmail(e){
     <section id="contact" className="relative">
       <div className="section-title">
           <div className="section-title-icon"><MailIcon/></div>
-          <h2> Hire Me</h2>
+          <h2>Contact me</h2>
       </div>
       <div className="contactContainer">
         <p>

@@ -16,7 +16,7 @@ const findByEmail = (email) => {
 const findOne = (id) => {
     return db
         .query(
-            "SELECT id,name, email, birthday, newsletter, pref_percentage, pref_max_amount, role FROM users WHERE id = ?",
+            "SELECT id, email, role FROM users WHERE id = ?",
             [id]
         )
         .then(([results]) => results[0]);

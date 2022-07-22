@@ -9,7 +9,7 @@ const privateKey = process.env.PRIVATE_KEY;
 // http://localhost:5000/auth/login
 authRouter.post("/login", (req, res) => {
   const { email, password } = req.body;
-console.log(email, 'route')
+
   User.findByEmail(email).then((user) => {
     console.log(user)
     if (user===undefined) res.status(401).send("Email not found");
@@ -18,7 +18,7 @@ console.log(email, 'route')
         (passwordIsCorrect) => {
           if (passwordIsCorrect) {
             const token = calculateJWTToken(user);
-            res.cookie("user_token", token);
+            res.cookie("userportfolio_token", token);
             res.status(202).send(user);
             
           } 
@@ -38,6 +38,7 @@ authRouter.get("/verify-token", (req, res) => {
 
   const decryptToken = jwt.verify(token, privateKey);
   User.findOne(decryptToken.id).then((foundUser) => {
+
     if (!foundUser) return res.status(404).json({ message: "User not found" });
     res.status(200).send(foundUser);
   });

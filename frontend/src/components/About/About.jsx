@@ -17,7 +17,7 @@ export default function About() {
           </div>
         </div>
         <div>
-          <img alt="hero" src="./melisandra.jpg"/>
+          <img alt="hero" src="./melisandra.png" className="myPicture"/>
         </div>
       </div>
     </section>
