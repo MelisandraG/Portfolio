@@ -7,26 +7,28 @@ import Projects from "./Projects/Projects";
 import Skills from "./Skills/Skills";
 import Background from "./Background/Background";
 import LoginPage from "./LoginPage/LoginPage";
-import SubmitProject from "./LoginPage/SubmiteProject/SubmiteProject";
+import SubmitProject from "./LoginPage/SubmitProject/SubmitProject";
 import Layout from "./Layout";
-import RequireAuth from "./RequireAuth/RequireAuth"
+import RequireAuth from "./RequireAuth/RequireAuth";
+import SubmitSkills from "./LoginPage/SubmitSkills/SubmitSkills";
 
 export default function Main() {
   const ROLES = {
     user: "user",
   };
   return (
-      <div className="main">
-        <Routes>
-          <Route path="/" element={<><About /><Background/><Projects /><Skills /><Contact /></>}/>
-          <Route path="/private-acess" element={<LoginPage/>}/>
-          <Route path="/" element={<Layout />}>
-            <Route
-              element={<RequireAuth allowedRoles={[ROLES.user]} />}
-            >
-              <Route path="/private-acess/submite-project" element={<SubmitProject/>}/>
-              </Route>
+    <div className="main">
+      <Routes>
+        <Route path="/" element={<><About /><Background /><Projects /><Skills /><Contact /></>} />
+        <Route path="/private-acess" element={<LoginPage />} />
+        <Route path="/" element={<Layout />}>
+          <Route
+            element={<RequireAuth allowedRoles={[ROLES.user]} />}
+          >
+            <Route path="/private-acess/submit-project" element={<SubmitProject />} />
+            <Route path="/private-acess/submit-skills" element={<SubmitSkills />} />
           </Route>
+        </Route>
       </Routes>
     </div>
   );

@@ -43,31 +43,49 @@ const findManyProject = () => {
 };
 
 
+const findManySkills = () => {
+    let sql = "SELECT * FROM skills";
+    return db.query(sql).then(([results]) => results);
+};
 
-const createProject = ({title, subtitle, description,technologies, image, link }) => {
- console.log(title)
-        return db
-            .query("INSERT INTO project SET ?", {
-                title, 
-                subtitle, 
-                description,
-                technologies, 
-                image, 
-                link
-            })
-            .then(([result]) => {
-                const id = result.insertId;
-                return { title, subtitle, description, image, link, id };
-            });
-    }
+const createProject = ({ title, subtitle, description, technologies, image, link }) => {
+    console.log(title)
+    return db
+        .query("INSERT INTO project SET ?", {
+            title,
+            subtitle,
+            description,
+            technologies,
+            image,
+            link
+        })
+        .then(([result]) => {
+            const id = result.insertId;
+            return { title, subtitle, description, image, link, id };
+        });
+}
 
+const createSkills = ({ title, image }) => {
+    return db
+        .query("INSERT INTO skills SET ?", {
+            title,
+            image,
+        })
+        .then(([result]) => {
+            const id = result.insertId;
+            return { title, image, id };
+        });
+
+}
 
 module.exports = {
-  
+
     findOne,
     findByEmail,
     verifyPassword,
     changePassword,
     findManyProject,
-    createProject
+    createProject,
+    findManySkills,
+    createSkills
 }

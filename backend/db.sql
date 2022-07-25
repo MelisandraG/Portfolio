@@ -53,3 +53,67 @@ VALUES
     'https://i.ibb.co/xmY1RHm/wild.png',
     'https://wild-league.netlify.app/'
   );
+
+
+CREATE TABLE `skills` (
+    `id` INT NOT NULL AUTO_INCREMENT,
+    `title` VARCHAR(80) UNIQUE NOT NULL,
+    `image` VARCHAR(300) not null,
+    PRIMARY KEY (`id`)
+  ) ENGINE = InnoDB AUTO_INCREMENT = 1 DEFAULT CHARSET = utf8;
+
+  INSERT INTO
+  `skills`
+VALUES
+  (
+    1,
+    'HTML5',
+    'https://i.ibb.co/V9wgfMh/html.png'
+  ),
+  (
+    2,
+    'CSS3',
+    'https://i.ibb.co/8bPCBd5/logo-css-3-2048.png'
+  ),
+  (
+    3,
+    'Javascript',
+    'https://i.ibb.co/FnpKJGP/javascript.png'
+  ),
+  (
+    4,
+    'Visual Studio Code',
+    'https://i.ibb.co/QHGN3X8/vs.png'
+  ),
+  (
+    5,
+    'GitHub',
+    'https://i.ibb.co/BjZkFWd/github.png'
+  ),
+  (
+    6,
+    'ReactJS',
+    'https://i.ibb.co/2dfrBbN/640px-React-svg.png'
+  ),
+  (
+    7,
+    'NodeJS',
+    'https://i.ibb.co/6DCHGXP/nodejs.jpg'
+  ),
+  (
+    8,
+    'ExpressJS',
+    'https://i.ibb.co/fXYnJ9m/Expressjs.png'
+  ),
+  (
+    9,
+    'SQL | MySQL',
+    'https://i.ibb.co/y6gbXyK/mysql.png'
+  ),
+  (
+    10,
+    'Postman',
+    'https://i.ibb.co/hyWHLjc/postman.png'
+  );
+
+

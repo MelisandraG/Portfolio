@@ -12,7 +12,7 @@ authRouter.post("/login", (req, res) => {
 
   User.findByEmail(email).then((user) => {
     console.log(user)
-    if (user===undefined) res.status(401).send("Email not found");
+    if (user === undefined) res.status(401).send("Email not found");
     else {
       User.verifyPassword(password, user.hashedPassword).then(
         (passwordIsCorrect) => {
@@ -20,8 +20,8 @@ authRouter.post("/login", (req, res) => {
             const token = calculateJWTToken(user);
             res.cookie("userportfolio_token", token);
             res.status(202).send(user);
-            
-          } 
+
+          }
           else res.status(403).send("Wrong password");
         }
       );
@@ -50,23 +50,49 @@ authRouter.get("/logout", (req, res) => {
 });
 
 authRouter.get("/project", (req, res) => {
- 
+
   User.findManyProject()
-  .then((results) => {
+    .then((results) => {
       res.json(results);
-  })
-  .catch((err) => {
+    })
+    .catch((err) => {
       console.error(err);
       res.status(500).send('Error retrieving users from database');
-  });
+    });
+});
+
+
+authRouter.get("/skills", (req, res) => {
+
+  User.findManySkills()
+    .then((results) => {
+      res.json(results);
+    })
+    .catch((err) => {
+      console.error(err);
+      res.status(500).send('Error retrieving users from database');
+    });
 });
 
 authRouter.post("/newProject", (req, res) => {
   console.log(req.body)
-  
+
   User.createProject(req.body)
     .then((createdUser) => {
       res.status(201).json(createdUser);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+});
+
+
+authRouter.post("/newSkills", (req, res) => {
+  console.log(req.body)
+
+  User.createSkills(req.body)
+    .then((createdSkills) => {
+      res.status(201).json(createdSkills);
     })
     .catch((err) => {
       console.log(err);
