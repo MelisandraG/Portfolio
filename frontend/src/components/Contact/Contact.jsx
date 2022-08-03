@@ -14,6 +14,8 @@ export default function Contact() {
 
   });
 
+  const [confirmationMessage, setConfirmationMessage] = useState("");
+
   
   let handleChange = (e) => {
 
@@ -31,7 +33,7 @@ function sendEmail(e){
   
   
   emailjs.sendForm(process.env.REACT_APP_SERVICE_ID, process.env.REACT_APP_TEMPLATE_ID, e.target, process.env.REACT_APP_PUBLIC_KEY)
-  .then(response =>console.log(response))
+  .then(response =>setConfirmationMessage('Thanks for being awesome! I have received your message and would like to thank you for writing to me'))
   .catch(err =>console.log(err))
 }
   return (
@@ -50,6 +52,7 @@ function sendEmail(e){
             <input type="subject"id="subject"name="subject" placeholder="Subject" value={form.subject} onChange={handleChange} required/>
             <textarea  id="message"name="message" value={form.message} onChange={handleChange} placeholder="Write a message" required/>
           <button type="submit">  Submit </button>
+          <p className="sucess-message">{confirmationMessage}</p>
         </form>
       </div>
     </section>

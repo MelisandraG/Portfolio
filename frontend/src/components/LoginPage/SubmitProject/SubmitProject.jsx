@@ -1,10 +1,17 @@
 
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import axios from 'axios';
 import { storage } from "../../../firebase";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 
 export default function SubmitProject() {
+
+  const [projects, setProjects] = useState()
+
+  useEffect(() => {
+   getProject();
+  }, []);
+
 
   const [newProject, setNewProject] = useState({
     title: "",
@@ -52,8 +59,18 @@ export default function SubmitProject() {
 
   }
 
+  const getProject = () => {
+    axios
+      .get(`/auth/project`)
+      .then((response) => {
+        setProjects(response.data)
 
-  console.log(url)
+      })
+      .catch((error) => {
+
+      });
+  }
+
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -83,6 +100,23 @@ export default function SubmitProject() {
         <input type="text" id="link" name="link" placeholder="Project link" value={newProject.link} onChange={handleChange} required />
         <button type="submit">  Submit </button>
       </form>
+
+      <div className="project-items">
+            {projects?.map((project) => (
+              <div className="project-item">
+                <div className="flex relative">
+                  <img alt="gallery"  src={project.image} className='project-image'/>
+                  <a href={project.link} key={project.image}>{project.link}</a>
+                  <div>
+                    <h1> {project.title}</h1>
+                    <h2>{project.subtitle}</h2>
+                    <p>{project.description}</p>
+                    <p>{project.technologies}</p>
+                  </div>
+                </div>
+              </div>
+          ))}
+          </div>
     </section>
   )
 }
