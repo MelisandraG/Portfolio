@@ -220,6 +220,10 @@ button{
 .project-content{
   margin: 20px;
 }
+
+.footer{
+  background-color: black;
+}
 @media (max-width: 768px) { 
   .NavBar >.image{
     display:none;

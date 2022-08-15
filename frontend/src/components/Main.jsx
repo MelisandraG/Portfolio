@@ -11,6 +11,7 @@ import SubmitProject from "./LoginPage/SubmitProject/SubmitProject";
 import Layout from "./Layout";
 import RequireAuth from "./RequireAuth/RequireAuth";
 import SubmitSkills from "./LoginPage/SubmitSkills/SubmitSkills";
+import { Footer } from "./Footer/Footer";
 
 export default function Main() {
   const ROLES = {
@@ -19,7 +20,7 @@ export default function Main() {
   return (
     <div className="main">
       <Routes>
-        <Route path="/" element={<><About /><Background /><Projects /><Skills /><Contact /></>} />
+        <Route path="/" element={<><About /><Background /><Projects /><Skills /><Contact /><Footer/></>} />
         <Route path="/private-acess" element={<LoginPage />} />
         <Route path="/" element={<Layout />}>
           <Route
