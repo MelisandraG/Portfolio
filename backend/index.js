@@ -3,6 +3,7 @@ const app = express();
 const connection = require("./config");
 const authRouter = require("./routes/auth");
 //const passwordRouter = require("./routes/passwordManagement");
+const cors = require('cors')
 
 const port = process.env.PORT || 5001;
 
@@ -12,6 +13,8 @@ const port = process.env.PORT || 5001;
  });
 
 app.use(express.json());
+
+app.use(cors())
 
 app.use("/auth", authRouter);
 //app.use("/password", passwordRouter);
